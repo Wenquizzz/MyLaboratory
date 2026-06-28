@@ -1,0 +1,3 @@
+C:/Users/knyaz/MyLaboratory/build/CMakeFiles/MyLaboratory.dir
+C:/Users/knyaz/MyLaboratory/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/knyaz/MyLaboratory/build/CMakeFiles/ZERO_CHECK.dir
