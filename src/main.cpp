@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void sumkulator() {
@@ -43,21 +44,73 @@ void multitable() {
 			break;
 		}
 	}
-
 }
 
-int main() {
-	while (true) {
-		cout << "\nSmart Calculator \nPress 1 to open sumculator; \nPress 2 to open the multiplication table; \nPress 3 to close smart calculator\n" << endl;
-		short choice;
-		cin >> choice;
-		if (choice == 1) {
-			sumkulator();
+void SumOfTwice() {
+	while(true) {
+		int arrsize, sum;
+		vector<int> arr;
+		cout << "\nEnter size of your array: ";
+		cin >> arrsize;
+		cout << "\nEnter sum what do you want: ";
+		cin >> sum;
+		cout << "\nEnter your array: ";
+		for (int i = 0; i < arrsize; i++) {
+		int v;
+		cin >> v;
+		arr.push_back(v);
 		}
-		else if (choice == 2) {
-			multitable();
+		int left = 0;
+		int right = arr.size() - 1;
+		while (left < right) {
+			int sum_cur = arr[left] + arr[right];
+			if (sum_cur == sum) {
+				break;
+			}
+			else if (sum_cur < sum) {
+				left++;
+			}
+			else {
+				right--;
+			}
+		}
+		if (left >= right) {
+			cout << "\nYour sum cannot get in this array\n";
 		}
 		else {
+			cout << "\nYour sum can claim if you add " << arr[left] << " + " << arr[right] << endl;
+		}
+		cout << "\nPress 1 to write new sum or press any number buttom to close SumOfTwice\n" << endl;
+		int again_close1;
+		cin >> again_close1;
+		if (again_close1 != 1) {
+			break;
+		}
+	}
+}
+
+
+int main() {
+	bool flag = true;;
+	while (flag == true) {
+		cout << "\nSmart Calculator \nPress 1 to open sumculator; \nPress 2 to open the multiplication table; \nPress 3 to open SumOfTwice; \nPress 4 to close smart calculator\n" << endl;
+		short choice;
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			sumkulator();
+			break;
+		case 2:
+			multitable();
+			break;
+		case 3:
+			SumOfTwice();
+			break;
+		case 4:
+			flag = false;
+			break;
+		default:
+			cout << "\nPlease press buttons that I suggested" << endl;
 			break;
 		}
 	}
